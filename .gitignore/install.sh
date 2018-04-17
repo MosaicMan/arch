@@ -21,4 +21,4 @@ echo "*** Install base system ***"
 pacstrap /mnt base base-devel btrfs-progs
 
 echo "*** Generate fstab file ***"
- **(genfstab -U -p /mnt >> /mnt/etc/fstab)**
+genfstab -U -p /mnt >> /mnt/etc/fstab
