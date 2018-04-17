@@ -10,4 +10,4 @@ echo "*** Update Pacman database ***"
 pacman -Syy
 
 echo "*** Install base system ***"
-pacstrap -i --noconfirm /mnt base base-devel btrfs-progs
+pacstrap /mnt base base-devel btrfs-progs
