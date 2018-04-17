@@ -24,3 +24,4 @@ pacstrap /mnt base base-devel btrfs-progs
 
 echo "*** Generate fstab file ***"
 genfstab -U -p /mnt >> /mnt/etc/fstab
+umount -R /mnt
