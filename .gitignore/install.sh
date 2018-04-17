@@ -1,4 +1,6 @@
 #!/bin/bash
+# Run curl -Ls https://git.io/vpTkb
+
 echo "*** Resize archiso ***"
 mount -o remount,size=2G /run/archiso/cowspace
 
