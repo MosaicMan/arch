@@ -7,8 +7,8 @@ mount -o remount,size=2G /run/archiso/cowspace
 echo "*** Create & format partitions ***"
 umount -R /mnt || /bin/true
 parted -s -a optimal /dev/sda mklabel gpt -- mkpart ESP fat32 1 1024 set 1 esp on set 1 boot on mkpart primary btrfs 1024 -0
-mkfs.fat -F32 /dev/sda1
-mkfs.btrfs -L Arch /dev/sda2
+mkfs.fat -f -F32 /dev/sda1
+mkfs.btrfs -f -L Arch /dev/sda2
 
 echo "*** Create btrfs subvolumes ***"
 mount /dev/sda2 /mnt
