@@ -13,14 +13,14 @@ mkfs.btrfs -L Arch /dev/sda2
 echo "*** Create btrfs subvolumes ***"
 mount /dev/sda2 /mnt
 cd /mnt
-btfrs subvol create Root
+btrfrs subvol create Root
 cd
 mount -o compress=zstd,noatime,subvolume=Root /dev/sda2 /mnt
 cd /mnt
-btfrs subvol create root
-btfrs subvol create home
-btfrs subvol create etc
-btfrs subvol create opts
+btrfs subvol create root
+btrfs subvol create home
+btrfs subvol create etc
+btrfs subvol create opts
 
 echo "*** Create btrfs root subvolume ***"
 mkdir -p /mnt/boot
