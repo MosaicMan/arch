@@ -42,5 +42,6 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 echo "*** Generate install script ***"
 echo 'echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen' >> /mnt/setup.sh
+echo "locale-gen"
 arch-chroot /mnt ./setup.sh
 umount -R /mnt
