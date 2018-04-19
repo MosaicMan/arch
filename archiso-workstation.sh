@@ -1,7 +1,6 @@
 #!/bin/bash
-# Run curl -Ls https://git.io/vpTkb
 
-echo "*** Resize archiso ***"
+echo "*** Resize ramdisk ***"
 mount -o remount,size=2G /run/archiso/cowspace
 
 echo "*** Create & format partitions ***"
@@ -13,20 +12,14 @@ mkfs.btrfs -f -L Arch /dev/sda2
 
 echo "*** Create btrfs subvolumes ***"
 mount /dev/sda2 /mnt
-cd /mnt
-btrfrs subvol create Root
-cd
-mount -o compress=zstd,noatime,subvolume=Root /dev/sda2 /mnt
-cd /mnt
-btrfs subvol create root
-btrfs subvol create home
-btrfs subvol create etc
-btrfs subvol create opts
+btrfrs subvol create /mnt/@OS
+umount -R /mnt
+mount -o compress=lzo,noatime,subvol=@OS /dev/sda2 /mnt
+btrfs subvol create /mnt/home
 
-echo "*** Create btrfs root subvolume ***"
+echo "*** Mount boot partition ***"
 mkdir -p /mnt/boot
 mount /dev/sda1 /mnt/boot
-
 
 echo "*** Update Pacman database ***"
 pacman -Syy
@@ -36,14 +29,17 @@ pacman -S --noconfirm reflector
 reflector -c "United States" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 echo "*** Install base system ***"
-pacstrap /mnt base base-devel btrfs-progs
+pacstrap /mnt base base-devel btrfs-progs refind-efi efibootmgr git mercurial
 
 echo "*** Generate fstab file ***"
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-echo "*** Generate install script ***"
-echo 'echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen' >> /mnt/setup.sh
-echo "locale-gen" >> /mnt/setup.sh
-chmod +x /mnt/setup.sh
-arch-chroot /mnt ./setup.sh
+echo "*** Run base install script ***"
+cp base-install.sh /mnt/.
+cp mkinitcpio.conf /mnt/etc/.
+chmod +x /mnt/base-install.sh
+arch-chroot /mnt ./base-install.sh
+cp refind.conf /mnt/boot/EFI/refind/refind.conf
+cp arch.refind.conf /mnt/boot/EFI/refind/arch.refind.conf
+rm /mnt/base-install.sh
 umount -R /mnt
