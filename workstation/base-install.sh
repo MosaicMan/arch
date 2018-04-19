@@ -5,6 +5,7 @@ echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc --utc
+systemctl enable systemd-timesyncd.service
 
 echo "*** Configuring hosts ***"
 echo "127.0.0.1    localhost.localdomain    localhost" >> /etc/hosts
@@ -33,6 +34,12 @@ echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 pacman -Syy
 pacman -S yaourt
 
+echo "*** Set environment variables ***"
+echo "DESKTOP_SESSION=kde" >> /etc/environment
+echo "XDG_CURRENT_DESKTOP=kde" >> /etc/environment
+echo "SSH_ASKPASS=ksshaskpass" >> /etc/environment
+echo "eval `ssh-agent -s`" >> /home/juancq/.xinitrc
+
 echo "*** Install system ***"
 pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     xorg xorg-xinit \
@@ -59,11 +66,13 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     kcharselect \
     keepass \
     krita \
+    ksshaskpass \
     ktorrent \
     kwalletmanager \
     ntfs-3g \
     nvidia \
     obs-studio \
+    openssh \
     otf-font-awesome \
     pepper-flash \
     print-manager \
