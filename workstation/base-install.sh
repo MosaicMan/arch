@@ -29,7 +29,7 @@ echo "*** Install yaourt ***"
 echo "" >> /etc/pacman.conf
 echo "[archlinuxfr]" >> /etc/pacman.conf
 echo "SigLevel = Never" >> /etc/pacman.conf
-echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 pacman -Syy
 pacman -S yaourt
 
@@ -45,11 +45,9 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     calligra \
     cmake \
     compton \
-    cryptomator \
     cups \
     cups-pdf \
     darktable \
-    debtap \
     feh \
     filelight \
     flashplugin \
@@ -73,7 +71,6 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     rofi \
     rsibreak \
     samba \
-    scanbd \
     scantailor \
     simple-scan \
     skanlite \
@@ -94,8 +91,6 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     virtualbox \
     w3m \
     xdotool \
-    yad \
-    yaourt \
     youtube-dl \
     zsh 
    
