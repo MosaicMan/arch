@@ -11,4 +11,4 @@ pacman -S git btrfs-progs
 echo "*** Clone installation repo ***"
 git clone https://github.com/MosaicMan/arch
 cd arch/workstation
-./archiso-workstation.sh
+./archiso.sh
