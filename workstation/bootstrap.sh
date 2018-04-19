@@ -1,4 +1,5 @@
 #!/bin/bash
+# Run with: bash<(curl -Ls {URL})
 
 echo "*** Resize ramdisk ***"
 mount -o remount,size=2G /run/archiso/cowspace
