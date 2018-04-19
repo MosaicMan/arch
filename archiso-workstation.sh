@@ -12,7 +12,7 @@ mkfs.btrfs -f -L Arch /dev/sda2
 
 echo "*** Create btrfs subvolumes ***"
 mount /dev/sda2 /mnt
-btrfrs subvol create /mnt/@OS
+btrfs subvol create /mnt/@OS
 umount -R /mnt
 mount -o compress=lzo,noatime,subvol=@OS /dev/sda2 /mnt
 btrfs subvol create /mnt/home
