@@ -11,8 +11,10 @@ echo "127.0.0.1    localhost.localdomain    localhost" >> /etc/hosts
 echo "127.0.1.1    development.localdomain    development" >> /etc/hosts
 systemctl enable dhcpcd
 
-echo "*** Setup users ***"
+echo "*** Setup root user password ***"
 passwd
+
+echo "*** Setup normal users ***"
 useradd -m -g users -G wheel -s /bin/bash juancq
 passwd juancq
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
