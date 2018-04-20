@@ -66,9 +66,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     kcharselect \
     keepass \
     krita \
-    ksshaskpass \
     ktorrent \
-    kwalletmanager \
     ntfs-3g \
     nvidia \
     obs-studio \

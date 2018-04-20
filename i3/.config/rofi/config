@@ -1,0 +1,20 @@
+rofi.lines: 5
+rofi.combi-modi: window,drun,ssh
+rofi.font: DejavuSansMono Nerd Font 28
+rofi.modi: run
+rofi.prompt: Run
+rofi.bw: 0
+rofi.eh: 2
+rofi.hide-scrollbar: true
+rofi.width: 100
+rofi.padding: 500
+rofi.matching: fuzzy
+rofi.auto-select: false
+rofi.color-window: #cf252936
+rofi.separator-style: solid
+
+! State:           ´bg´,       ´fg´,     ´bgalt´,   ´hlbg´,      ´hlfg´
+rofi.color-normal: #00000000,  #646a75,  #00000000,  #00000000,  #ffaf5f
+rofi.color-urgent: #00000000,  #d75f5f,  #00000000,  #00000000,  #d75f5f
+rofi.color-active: #00000000,  #ffffff,  #00000000,  #00000000,  #ffffff
+
