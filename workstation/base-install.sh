@@ -103,3 +103,4 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
    
     
 systemctl enable sddm.service
+systemctl enable systemd-timesyncd.service
