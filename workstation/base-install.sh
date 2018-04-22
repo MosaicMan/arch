@@ -106,3 +106,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     
 systemctl enable sddm.service
 systemctl enable systemd-timesyncd.service
+systemctl enable snapper-timeline.timer
+systemctl enable snapper-cleanup.timer
+snapper -c root create-config /
+snapper -c home create-config /home
