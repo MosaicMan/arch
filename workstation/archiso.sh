@@ -1,23 +1,21 @@
 #!/bin/bash
 
 echo "*** Create & format partitions ***"
-parted -s -a optimal /dev/sda mklabel gpt
-parted -s -a optimal /dev/sda mklabel gpt -- mkpart ESP fat32 1 1024 set 1 esp on set 1 boot on mkpart primary btrfs 1024 -0
-mkfs.fat -F32 /dev/sda1
-mkfs.btrfs -f -L Arch /dev/sda2
+mkfs.fat -F32 /dev/sde1
+mkfs.btrfs -f -L Arch /dev/sde2
 
 echo "*** Create btrfs subvolumes ***"
 read -n 1 -s
-mount /dev/sda2 /mnt
-btrfs subvol create /mnt/@OS
+mount /dev/sde2 /mnt
+btrfs subvol create /mnt/@
 umount -R /mnt
-mount -o compress=lzo,noatime,subvol=@OS /dev/sda2 /mnt
+mount -o compress=lzo,noatime,subvol=@ /dev/sde2 /mnt
 btrfs subvol create /mnt/home
 
 echo "*** Mount boot partition ***"
 read -n 1 -s
 mkdir -p /mnt/boot
-mount /dev/sda1 /mnt/boot
+mount /dev/sde1 /mnt/boot
 
 echo "*** Configure Reflector ***"
 read -n 1 -s
