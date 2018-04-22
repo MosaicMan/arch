@@ -52,6 +52,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     calligra \
     cmake \
     compton \
+    cronie \
     cups \
     cups-pdf \
     darktable \
@@ -81,6 +82,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     scantailor \
     simple-scan \
     skanlite \
+    snapper \
     spectacle \
     stow \
     tmux \
