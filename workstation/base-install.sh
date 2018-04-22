@@ -53,15 +53,11 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     cmake \
     compton \
     cronie \
-    cups \
-    cups-pdf \
     darktable \
     feh \
     filelight \
     flashplugin \
     fontforge \
-    foomatic-db \
-    foomatic-db-engine \
     htop \
     kcalc \
     kcharselect \
@@ -74,11 +70,9 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     openssh \
     otf-font-awesome \
     pepper-flash \
-    print-manager \
     ranger \
     rofi \
     rsibreak \
-    samba \
     scantailor \
     simple-scan \
     skanlite \
@@ -108,5 +102,6 @@ systemctl enable sddm.service
 systemctl enable systemd-timesyncd.service
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
+systemctl enable org.cups.cupsd.service
 snapper -c root create-config /
 snapper -c home create-config /home
