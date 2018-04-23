@@ -48,6 +48,8 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     sddm sddm-kcm \
     adobe-source-sans-pro-fonts \
     ark \
+    libjpeg6-turbo \
+    libpng12 \
     aspell-en \
     calligra \
     cmake \

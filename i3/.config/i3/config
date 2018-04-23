@@ -214,6 +214,9 @@ bindsym Control+F9 exec keepass --auto-type
 #bindsym Control+F9 exec keepass2 --auto-type
 for_window [instance="keepass"] move scratchpad
 
+# Cryptomator
+for_window [class="org.cryptomator.launcher.MainApplication"] move scratchpad
+
 # pCloud
 for_window [instance="pcloud"] move scratchpad
 
@@ -336,6 +339,6 @@ assign [class="Google-chrome"] $workspace2
 assign [class="Firefox"] $workspace4
 
 exec --no-startup-id ~/.local/bin/pcloud
-exec --no-startup-id keepass
+exec --no-startup-id ~/.config/autostart/keepass.sh
 exec --no-startup-id duplicati
 
