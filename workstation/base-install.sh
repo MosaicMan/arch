@@ -107,3 +107,5 @@ systemctl enable snapper-cleanup.timer
 systemctl enable org.cups.cupsd.service
 snapper -c root create-config /
 snapper -c home create-config /home
+
+echo fs.inotify.max_user_watches=524288 | tee /etc/sysctl.d/40-max-user-watches.conf && sysctl --system
