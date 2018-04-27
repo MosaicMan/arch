@@ -54,6 +54,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     libpng12 \
     aspell-en \
     calligra \
+    clang \
     cmake \
     compton \
     cronie \

@@ -13,7 +13,6 @@ linemode
 linemode?
 linemode
 linemode devicons
-
 mkdir Fidelity
 mkdir {Personal, Qlio, Shared}
 delete
@@ -33,3 +32,4 @@ mkdir icons
 paste
 sudo vim sddm.conf
 mkdir History
+
