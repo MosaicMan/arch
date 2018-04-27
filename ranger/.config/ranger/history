@@ -1,9 +1,7 @@
-?
 flat!
 flat
 rename 5-Day Photo Challenge - Composition
 flat -1
-delete
 rename 
 flat 1
 flat 2
@@ -14,5 +12,24 @@ open_with
 linemode 
 linemode?
 linemode
-
 linemode devicons
+
+mkdir Fidelity
+mkdir {Personal, Qlio, Shared}
+delete
+mkdir Personal
+mkdir Qlio
+mkdir Shared
+copy 
+?
+help
+copy
+mkdir .icons
+mkdir default
+touch index.theme
+open_with vim
+cut
+mkdir icons
+paste
+sudo vim sddm.conf
+mkdir History

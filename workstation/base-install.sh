@@ -6,6 +6,7 @@ locale-gen
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc --utc
 systemctl enable systemd-timesyncd.service
+localectl set-locale LANG=en_US.UTF-8
 
 echo "*** Configuring hosts ***"
 echo "127.0.0.1    localhost.localdomain    localhost" >> /etc/hosts
@@ -46,6 +47,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     plasma-desktop i3 \
     konsole dolphin firefox kate kmix gtk3 gtk2 kde-gtk-config breeze-gtk pavucontrol user-manager\
     sddm sddm-kcm \
+    virt-manager qemu libvirt ebtables dnsmasq bridge-utils \
     adobe-source-sans-pro-fonts \
     ark \
     libjpeg6-turbo \
@@ -105,7 +107,15 @@ systemctl enable systemd-timesyncd.service
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
 systemctl enable org.cups.cupsd.service
+
+systemctl enable libvirtd.service
+systemctl enable dnsmasq.service
+systemctl enable ebtables.service
+
 snapper -c root create-config /
 snapper -c home create-config /home
 
 echo fs.inotify.max_user_watches=524288 | tee /etc/sysctl.d/40-max-user-watches.conf && sysctl --system
+touch /var/lib/als/asound.state
+
+usermod -a -G libvirt juancq

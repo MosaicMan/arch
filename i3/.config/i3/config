@@ -341,4 +341,6 @@ assign [class="Firefox"] $workspace4
 exec --no-startup-id ~/.local/bin/pcloud
 exec --no-startup-id ~/.config/autostart/keepass.sh
 exec --no-startup-id duplicati
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+
 
