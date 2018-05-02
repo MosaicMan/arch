@@ -39,6 +39,7 @@ echo "*** Set environment variables ***"
 echo "DESKTOP_SESSION=kde" >> /etc/environment
 echo "XDG_CURRENT_DESKTOP=kde" >> /etc/environment
 echo "SSH_ASKPASS=ksshaskpass" >> /etc/environment
+echo "EDITOR=vim" >> /etc/environment
 echo "eval `ssh-agent -s`" >> /home/juancq/.xinitrc
 
 echo "*** Install system ***"
@@ -54,15 +55,17 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     libpng12 \
     aspell-en \
     calligra \
-    clang \
     cmake \
     compton \
     cronie \
     darktable \
+    davfs2 \
     feh \
     filelight \
     flashplugin \
     fontforge \
+    gimp \
+    gvim \
     htop \
     kcalc \
     kcharselect \
@@ -95,7 +98,6 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     ttf-liberation \
     ttf-roboto \
     ttf-ubuntu-font-family \
-    vim \
     virtualbox \
     w3m \
     xdotool \
@@ -120,3 +122,4 @@ echo fs.inotify.max_user_watches=524288 | tee /etc/sysctl.d/40-max-user-watches.
 touch /var/lib/als/asound.state
 
 usermod -a -G libvirt juancq
+usermod -a -G network juancq

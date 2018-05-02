@@ -33,3 +33,9 @@ paste
 sudo vim sddm.conf
 mkdir History
 
+terminal 
+term
+ls
+terminal ls
+ll
+terminal
