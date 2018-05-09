@@ -1,0 +1,563 @@
+<%
+    # RNB, A VIM COLORSCHEME TEMPLATE
+    # Author:        Romain Lafourcade (https://github.com/romainl)
+    # Canonical URL: https://gist.github.com/romainl/5cd2f4ec222805f49eca
+
+    # This template is designed to help vimmers create their own colorschemes
+    # without much effort.
+    #
+    # You will need Ruby to generate your colorscheme but Ruby knowledge is
+    # not needed at all.
+    #
+    # The process is divided in four steps:
+    #   1. start by editing your colorscheme's information,
+    #   2. define your colors,
+    #   3. define your highlight groups and links,
+    #   4. and generate your colorscheme.
+
+    # Step 1: information
+    #
+    # Make sure the name of your colorscheme is unique and attractive.
+    # The description should fit in a single line with no linefeed.
+    # 'background' can be "light" or "dark".
+    information = {
+        author:      "MosaicMan",
+        email:       "MosaicMan@foo.bar",
+        name:        "Qlio",
+        description: "Dark theme based on Twilight",
+        background:  "dark",
+        webpage:     "https://github.com/MosaicMan"
+    }
+
+    # Step 2: colors
+    #
+    # black = [       give each color a distinctive name
+    #   "#000000",    hexadecimal color for GVim/MacVim and "true colors" terminals
+    #   0,            integer between 0 and 255 for terminals supporting 256 colors
+    #   "black"       color name for less capable color terminals, can be "darkred", "red",
+    #                 "darkgreen", "green", "darkyellow", "yellow", "darkblue", "blue",
+    #                 "darkmagenta", "magenta", "black", "darkgrey", "grey", "white"
+    # ]
+    #
+    # If your colors are defined correctly, the resulting colorscheme is guaranteed
+    # to work in GVim (Windows/Linux), MacVim, and any properly set up terminal emulator.
+    #
+    # The colors below are the first 16 colors of the xterm palette. They
+    # are only here as an example so you can get rid of them, I won't be mad.
+    black       = ["#000000", 0, "black"]
+    darkred     = ["#800000", 1, "darkred"]
+    darkgreen   = ["#008000", 2, "darkgreen"]
+    darkyellow  = ["#808000", 3, "darkyellow"]
+    darkblue    = ["#000080", 4, "darkblue"]
+    darkmagenta = ["#800080", 5, "darkmagenta"]
+    darkcyan    = ["#008080", 6, "darkcyan"]
+    gray        = ["#c0c0c0", 7, "gray"]
+    darkgray    = ["#808080", 8, "darkgray"]
+    red         = ["#ff0000", 9, "red"]
+    green       = ["#00ff00", 10, "green"]
+    yellow      = ["#ffff00", 11, "yellow"]
+    blue        = ["#0000ff", 12, "blue"]
+    magenta     = ["#ff00ff", 13, "magenta"]
+    cyan        = ["#00ffff", 14, "cyan"]
+    white       = ["#ffffff", 15, "white"]
+
+    # Qlio Twilight Palette
+    qlioBrown   = ["#875f00", 94, "darkred"]
+    qlioGold    = ["#af875f", 137, "red"]
+    qlioGreen   = ["#87875f", 101, "darkyellow"]
+    qlioOrange  = ["#af5f00", 130, "darkred"]
+    qlioGray    = ["#5f5f5f", 59, "gray"]
+    qlioBlue    = ["#5f87af", 67, "darkcyan"]
+    qlioWhite   = ["#bcbcbc", 250, "white"]
+
+    # Additional features
+    qlioDarkGray   = ["#3a3a3a", 237, "darkgray"]
+    qlioLightGray   = ["#9e9e9e", 247, "gray"]
+    qlioLilac   = ["#8787af", 103, "darkmagenta"]
+
+    # Step 3: highlights
+    #
+    # You can define highlight groups like this:
+    #
+    #   [ "Normal",       name of the highlight group
+    #     white,          the color used for background color, or use "NONE", "fg" or "bg"
+    #     darkgray,       the color used for foreground color, or use "NONE", "fg" or "bg"
+    #     "NONE"          style, can be "bold", "underline", "reverse", "italic",
+    #                     "standout", "NONE" or "undercurl"
+    #   ]
+    #
+    # The sample above tells Vim to render normal text in dark gray against a white
+    # background, without any styling.
+    #
+    # or link an highlight group to another:
+    #
+    #   [ "Title", "Normal" ]
+    #
+    # In GUI Vim, there is an additional color for the undercurl used to
+    # highlight spelling mistakes:
+    #
+    #   [ "SpellBad",     name of the highlight group
+    #     "NONE",         the color used for background color, or use "NONE", "fg" or "bg"
+    #     red,            the color used for foreground color, or use "NONE", "fg" or "bg"
+    #     "undercurl",    style
+    #     red             color used for the undercurl
+    #   ]
+    #
+    # The sample above tells Vim to render badly spelled words in red against the current
+    # background, with a red undercurl.
+    #
+    # You can add any custom highlight group to the standard list below but you shouldn't
+    # remove any if you want a working colorscheme.
+    highlights = [
+	
+    	### Editor Settings ####
+    	[ "Normal", "NONE", qlioWhite, "NONE" ],
+    	[ "Cursor", "NONE", darkgray, "NONE" ],
+    	[ "CursorLine", "NONE", "NONE", "NONE" ],
+    	[ "LineNr", "NONE", darkgray, "NONE" ],
+    	[ "CursorLineNr", "NONE", qlioOrange, "bold"],
+    	[ "helpLeadBlank", "NONE", qlioOrange, "NONE" ],
+    	[ "helpNormal", "NONE", qlioLightGray, "NONE" ],
+    	
+    	### Number Column ####
+    	[ "CursorColumn", "NONE", qlioDarkGray, "NONE" ],
+    	[ "SignColumn", qlioGray, cyan, "NONE" ],
+    	[ "FoldColumn", qlioGray, cyan, "NONE" ],
+    	[ "Folded", qlioDarkGray, qlioLilac, "NONE" ],
+    	
+    	### Window/Tab Delimiters ####
+    	[ "VertSplit", qlioGray, qlioGray, "NONE" ],
+    	[ "ColorColumn", qlioOrange, "NONE", "NONE" ],
+    	[ "TabLineFill", "NONE", qlioLightGray, "NONE" ],
+    	[ "TabLineSel", qlioWhite, "NONE", "NONE" ],
+    	
+    	### File Navigation/Searching ####
+    	[ "Directory", "NONE", darkgray, "NONE" ],
+    	[ "Search", qlioGold, qlioDarkGray, "NONE" ],
+    	[ "IncSearch", "NONE", "NONE", "reverse" ],
+
+    	### Prompt/Status ####
+    	[ "StatusLine",qlioDarkGray, qlioWhite, "NONE" ],
+    	[ "StatusLineNC", qlioGray, qlioLightGray, "NONE" ],
+    	[ "WildMenu", qlioGold, qlioDarkGray, "NONE" ],
+    	[ "Question", "NONE", qlioBlue, "NONE" ],
+    	[ "Title", "NONE", qlioLilac, "NONE" ],
+    	[ "ModeMsg", "NONE", "NONE", "bold" ],
+    	[ "MoreMsg", "NONE", qlioBlue, "NONE" ],
+    	
+    	### Visual aid ####
+    	[ "MatchParen", qlioLilac, qlioWhite, "bold" ],
+    	[ "Visual", qlioLilac, "NONE", "NONE" ],
+    	[ "VisualNOS", "NONE", "NONE", "NONE" ],
+    	[ "NonText", "NONE", qlioGray, "NONE" ],
+    	[ "Todo", qlioDarkGray, qlioLightGray, "NONE" ],
+    	[ "Underlined", "NONE", qlioLilac, "underline" ],
+    	[ "Error", red, qlioWhite, "NONE" ],
+    	[ "ErrorMsg", darkred, qlioWhite, "NONE" ],
+    	[ "WarningMsg", "NONE", qlioBlue, "NONE" ],
+    	[ "Ignore", "NONE", qlioGray, "NONE" ],
+    	[ "SpecialKey", "NONE", qlioBlue, "NONE" ],
+    	
+    	### Variable types ####
+    	[ "Constant", "NONE", darkgray, "NONE" ],
+    	[ "String", "NONE", darkgray, "NONE" ],
+    	[ "StringDelimiter", "NONE", darkgray, "NONE" ],
+    	[ "Character", "NONE", darkgray, "NONE" ],
+    	[ "Number", "NONE", darkgray, "NONE" ],
+    	[ "Boolean", "NONE", darkgray, "NONE" ],
+    	[ "Float", "NONE", darkgray, "NONE" ],
+    	[ "Identifier", "NONE", darkgray, "NONE" ],
+    	[ "Function", "NONE", darkgray, "NONE" ],
+    	
+        ### Language Constructs ####
+    	[ "Statement", "NONE", darkgray, "NONE" ],
+    	[ "Conditional", "NONE", darkgray, "NONE" ],
+    	[ "Repeat", "NONE", darkgray, "NONE" ],
+    	[ "Label", "NONE", darkgray, "NONE" ],
+    	[ "Operator", "NONE", darkgray, "NONE" ],
+    	[ "Keyword", "NONE", darkgray, "NONE" ],
+    	[ "Exception", "NONE", darkgray, "NONE" ],
+    	[ "Comment", "NONE", darkgray, "NONE" ],
+    	[ "Special", "NONE", darkgray, "NONE" ],
+    	[ "SpecialChar", "NONE", darkgray, "NONE" ],
+    	[ "Tag", "NONE", darkgray, "NONE" ],
+    	[ "Delimiter", "NONE", darkgray, "NONE" ],
+    	[ "SpecialComment", "NONE", darkgray, "NONE" ],
+    	[ "Debug", "NONE", darkgray, "NONE" ],
+    	
+        ### C Like ####
+    	[ "PreProc", "NONE", darkgray, "NONE" ],
+    	[ "Include", "NONE", darkgray, "NONE" ],
+    	[ "Define", "NONE", darkgray, "NONE" ],
+    	[ "Macro", "NONE", darkgray, "NONE" ],
+    	[ "PreCondit", "NONE", darkgray, "NONE" ],
+    	[ "Type", "NONE", darkgray, "NONE" ],
+    	[ "StorageClass", "NONE", darkgray, "NONE" ],
+    	[ "Structure", "NONE", darkgray, "NONE" ],
+    	[ "Typedef", "NONE", darkgray, "NONE" ],
+    	
+        ### Diff ####
+    	[ "DiffAdd", "NONE", darkgray, "NONE" ],
+    	[ "DiffChange", "NONE", darkgray, "NONE" ],
+    	[ "DiffDelete", "NONE", darkgray, "NONE" ],
+    	[ "DiffText", "NONE", darkgray, "NONE" ],
+    	
+        ### Spelling ####
+    	[ "SpellBad", "NONE", darkgray, "NONE", red ],
+    	[ "SpellCap", "NONE", darkgray, "NONE", blue ],
+    	[ "SpellLocal", "NONE", darkgray, "NONE", magenta ],
+    	[ "SpellRare", "NONE", darkgray, "NONE", cyan ],
+    	
+        ### Completion Menu ####
+    	[ "Pmenu", "NONE", darkgray, "NONE" ],
+    	[ "PmenuSbar", "NONE", darkgray, "NONE" ],
+    	[ "PmenuSel", "NONE", darkgray, "NONE" ],
+    	[ "PmenuThumb", "NONE", darkgray, "NONE" ],
+
+        ### Python ###
+        #[ "pythonStatement", "NONE", "NONE", "NONE" ],
+        #[ "pythonLambdaExpr", "NONE", "NONE", "NONE" ],
+        #[ "pythonInclude", "NONE", "NONE", "NONE" ],
+        #[ "pythonFunction", "NONE", "NONE", "NONE" ],
+        #[ "pythonClass", "NONE", "NONE", "NONE" ],
+        #[ "pythonParameters", "NONE", "NONE", "NONE" ],
+        #[ "pythonParam", "NONE", "NONE", "NONE" ],
+        #[ "pythonBrackets", "NONE", "NONE", "NONE" ],
+        #[ "pythonClassParameters", "NONE", "NONE", "NONE" ],
+        #[ "pythonSelf", "NONE", "NONE", "NONE" ],
+        #[ "pythonConditional", "NONE", "NONE", "NONE" ],
+        #[ "pythonRepeat", "NONE", "NONE", "NONE" ],
+        #[ "pythonException", "NONE", "NONE", "NONE" ],
+        #[ "pythonOperator", "NONE", "NONE", "NONE" ],
+        #[ "pythonExtraOperator", "NONE", "NONE", "NONE" ],
+        #[ "pythonExtraPseudoOperator", "NONE", "NONE", "NONE" ],
+        #[ "pythonDecorator", "NONE", "NONE", "NONE" ],
+        #[ "pythonDottedName", "NONE", "NONE", "NONE" ],
+        #[ "pythonDot", "NONE", "NONE", "NONE" ],
+        #[ "pythonComment", "NONE", "NONE", "NONE" ],
+        #[ "pythonCoding", "NONE", "NONE", "NONE" ],
+        #[ "pythonRun", "NONE", "NONE", "NONE" ],
+        #[ "pythonTodo", "NONE", "NONE", "NONE" ],
+        #[ "pythonError", "NONE", "NONE", "NONE" ],
+        #[ "pythonIndentError", "NONE", "NONE", "NONE" ],
+        #[ "pythonSpaceError", "NONE", "NONE", "NONE" ],
+        #[ "pythonString", "NONE", "NONE", "NONE" ],
+        #[ "pythonDocstring", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniString", "NONE", "NONE", "NONE" ],
+        #[ "pythonRawString", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniRawString", "NONE", "NONE", "NONE" ],
+        #[ "pythonEscape", "NONE", "NONE", "NONE" ],
+        #[ "pythonEscapeError", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniEscape", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniEscapeError", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniRawEscape", "NONE", "NONE", "NONE" ],
+        #[ "pythonUniRawEscapeError", "NONE", "NONE", "NONE" ],
+        #[ "pythonStrFormatting", "NONE", "NONE", "NONE" ],
+        #[ "pythonStrFormat", "NONE", "NONE", "NONE" ],
+        #[ "pythonStrTemplate", "NONE", "NONE", "NONE" ],
+        #[ "pythonDocTest", "NONE", "NONE", "NONE" ],
+        #[ "pythonDocTest2", "NONE", "NONE", "NONE" ],
+        #[ "pythonNumber", "NONE", "NONE", "NONE" ],
+        #[ "pythonHexNumber", "NONE", "NONE", "NONE" ],
+        #[ "pythonOctNumber", "NONE", "NONE", "NONE" ],
+        #[ "pythonBinNumber", "NONE", "NONE", "NONE" ],
+        #[ "pythonFloat", "NONE", "NONE", "NONE" ],
+        #[ "pythonOctError", "NONE", "NONE", "NONE" ],
+        #[ "pythonHexError", "NONE", "NONE", "NONE" ],
+        #[ "pythonBinError", "NONE", "NONE", "NONE" ],
+        #[ "pythonBuiltinType", "NONE", "NONE", "NONE" ],
+        #[ "pythonBuiltinObj", "NONE", "NONE", "NONE" ],
+        #[ "pythonBuiltinFunc", "NONE", "NONE", "NONE" ],
+        #[ "pythonExClass", "NONE", "NONE", "NONE" ],
+
+        #### NERDTree ####
+        #[ "NERDTreePart", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreePartFile", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeExecFile", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeDirSlash", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeBookmarksHeader", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeBookmarksLeader", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeBookmarkName", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeBookmark", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeHelp", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeHelpKey", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeHelpCommand", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeHelpTitle", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeToggleOn", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeToggleOff", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeLinkTarget", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeLinkFile", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeLinkDir", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeDir", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeUp", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeFile", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeCWD", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeOpenable", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeClosable", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeIgnore", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeRO", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeBookmark", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeFlags", "NONE", "NONE", "NONE" ],
+        #[ "NERDTreeCurrentNode", "NONE", "NONE", "NONE" ],
+
+        #### JAVASCRIPT/JSX ###
+        #[ "jsEnvComment", "NONE", "NONE", "NONE" ],
+        #[ "jsParensIfElse", "NONE", "NONE", "NONE" ],
+        #[ "jsParensRepeat", "NONE", "NONE", "NONE" ],
+        #[ "jsParensSwitch", "NONE", "NONE", "NONE" ],
+        #[ "jsParensCatch", "NONE", "NONE", "NONE" ],
+        #[ "jsCommentTodo", "NONE", "NONE", "NONE" ],
+        #[ "jsString", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectKeyString", "NONE", "NONE", "NONE" ],
+        #[ "jsTemplateString", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectStringKey", "NONE", "NONE", "NONE" ],
+        #[ "jsClassStringKey", "NONE", "NONE", "NONE" ],
+        #[ "jsTaggedTemplate", "NONE", "NONE", "NONE" ],
+        #[ "jsTernaryIfOperator", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpString", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpBoundary", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpQuantifier", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpOr", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpMod", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpBackRef", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpGroup", "NONE", "NONE", "NONE" ],
+        #[ "jsRegexpCharClass", "NONE", "NONE", "NONE" ],
+        #[ "jsCharacter", "NONE", "NONE", "NONE" ],
+        #[ "jsPrototype", "NONE", "NONE", "NONE" ],
+        #[ "jsConditional", "NONE", "NONE", "NONE" ],
+        #[ "jsBranch", "NONE", "NONE", "NONE" ],
+        #[ "jsLabel", "NONE", "NONE", "NONE" ],
+        #[ "jsReturn", "NONE", "NONE", "NONE" ],
+        #[ "jsRepeat", "NONE", "NONE", "NONE" ],
+        #[ "jsDo", "NONE", "NONE", "NONE" ],
+        #[ "jsStatement", "NONE", "NONE", "NONE" ],
+        #[ "jsException", "NONE", "NONE", "NONE" ],
+        #[ "jsTry", "NONE", "NONE", "NONE" ],
+        #[ "jsFinally", "NONE", "NONE", "NONE" ],
+        #[ "jsCatch", "NONE", "NONE", "NONE" ],
+        #[ "jsAsyncKeyword", "NONE", "NONE", "NONE" ],
+        #[ "jsForAwait", "NONE", "NONE", "NONE" ],
+        #[ "jsArrowFunction", "NONE", "NONE", "NONE" ],
+        #[ "jsFunction", "NONE", "NONE", "NONE" ],
+        #[ "jsGenerator", "NONE", "NONE", "NONE" ],
+        #[ "jsArrowFuncArgs", "NONE", "NONE", "NONE" ],
+        #[ "jsFuncName", "NONE", "NONE", "NONE" ],
+        #[ "jsClassFuncName", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectFuncName", "NONE", "NONE", "NONE" ],
+        #[ "jsArguments", "NONE", "NONE", "NONE" ],
+        #[ "jsError", "NONE", "NONE", "NONE" ],
+        #[ "jsParensError", "NONE", "NONE", "NONE" ],
+        #[ "jsOperator", "NONE", "NONE", "NONE" ],
+        #[ "jsOf", "NONE", "NONE", "NONE" ],
+        #[ "jsStorageClass", "NONE", "NONE", "NONE" ],
+        #[ "jsClassKeyword", "NONE", "NONE", "NONE" ],
+        #[ "jsExtendsKeyword", "NONE", "NONE", "NONE" ],
+        #[ "jsThis", "NONE", "NONE", "NONE" ],
+        #[ "jsSuper", "NONE", "NONE", "NONE" ],
+        #[ "jsNan", "NONE", "NONE", "NONE" ],
+        #[ "jsNull", "NONE", "NONE", "NONE" ],
+        #[ "jsUndefined", "NONE", "NONE", "NONE" ],
+        #[ "jsNumber", "NONE", "NONE", "NONE" ],
+        #[ "jsFloat", "NONE", "NONE", "NONE" ],
+        #[ "jsBooleanTrue", "NONE", "NONE", "NONE" ],
+        #[ "jsBooleanFalse", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectColon", "NONE", "NONE", "NONE" ],
+        #[ "jsNoise", "NONE", "NONE", "NONE" ],
+        #[ "jsBrackets", "NONE", "NONE", "NONE" ],
+        #[ "jsParens", "NONE", "NONE", "NONE" ],
+        #[ "jsBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsFuncBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsFuncParens", "NONE", "NONE", "NONE" ],
+        #[ "jsClassBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsClassNoise", "NONE", "NONE", "NONE" ],
+        #[ "jsIfElseBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsTryCatchBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsModuleBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectSeparator", "NONE", "NONE", "NONE" ],
+        #[ "jsFinallyBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsRepeatBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsSwitchBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsSpecial", "NONE", "NONE", "NONE" ],
+        #[ "jsTemplateBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsGlobalObjects", "NONE", "NONE", "NONE" ],
+        #[ "jsGlobalNodeObjects", "NONE", "NONE", "NONE" ],
+        #[ "jsExceptions", "NONE", "NONE", "NONE" ],
+        #[ "jsBuiltins", "NONE", "NONE", "NONE" ],
+        #[ "jsImport", "NONE", "NONE", "NONE" ],
+        #[ "jsExport", "NONE", "NONE", "NONE" ],
+        #[ "jsExportDefault", "NONE", "NONE", "NONE" ],
+        #[ "jsExportDefaultGroup", "NONE", "NONE", "NONE" ],
+        #[ "jsModuleAs", "NONE", "NONE", "NONE" ],
+        #[ "jsModuleComma", "NONE", "NONE", "NONE" ],
+        #[ "jsModuleAsterisk", "NONE", "NONE", "NONE" ],
+        #[ "jsFrom", "NONE", "NONE", "NONE" ],
+        #[ "jsDecorator", "NONE", "NONE", "NONE" ],
+        #[ "jsDecoratorFunction", "NONE", "NONE", "NONE" ],
+        #[ "jsParensDecorator", "NONE", "NONE", "NONE" ],
+        #[ "jsFuncArgOperator", "NONE", "NONE", "NONE" ],
+        #[ "jsClassProperty", "NONE", "NONE", "NONE" ],
+        #[ "jsSpreadOperator", "NONE", "NONE", "NONE" ],
+        #[ "jsRestOperator", "NONE", "NONE", "NONE" ],
+        #[ "jsRestExpression", "NONE", "NONE", "NONE" ],
+        #[ "jsSwitchColon", "NONE", "NONE", "NONE" ],
+        #[ "jsClassMethodType", "NONE", "NONE", "NONE" ],
+        #[ "jsObjectMethodType", "NONE", "NONE", "NONE" ],
+        #[ "jsClassDefinition", "NONE", "NONE", "NONE" ],
+        #[ "jsBlockLabel", "NONE", "NONE", "NONE" ],
+        #[ "jsBlockLabelKey", "NONE", "NONE", "NONE" ],
+        #[ "jsDestructuringBraces", "NONE", "NONE", "NONE" ],
+        #[ "jsDestructuringProperty", "NONE", "NONE", "NONE" ],
+        #[ "jsDestructuringAssignment", "NONE", "NONE", "NONE" ],
+        #[ "jsDestructuringNoise", "NONE", "NONE", "NONE" ],
+        #[ "jsCommentFunction", "NONE", "NONE", "NONE" ],
+        #[ "jsCommentClass", "NONE", "NONE", "NONE" ],
+        #[ "jsCommentIfElse", "NONE", "NONE", "NONE" ],
+        #[ "jsCommentRepeat", "NONE", "NONE", "NONE" ],
+        #[ "jsDomErrNo", "NONE", "NONE", "NONE" ],
+        #[ "jsDomNodeConsts", "NONE", "NONE", "NONE" ],
+        #[ "jsDomElemAttrs", "NONE", "NONE", "NONE" ],
+        #[ "jsDomElemFuncs", "NONE", "NONE", "NONE" ],
+        #[ "jsHtmlEvents", "NONE", "NONE", "NONE" ],
+        #[ "jsHtmlElemAttrs", "NONE", "NONE", "NONE" ],
+        #[ "jsHtmlElemFuncs", "NONE", "NONE", "NONE" ],
+        #[ "jsCssStyles", "NONE", "NONE", "NONE" ],
+
+        #### SASS/SCSS ###
+        #[ "sassEndOfLineComment", "NONE", "NONE", "NONE" ],
+        #[ "sassCssComment", "NONE", "NONE", "NONE" ],
+        #[ "sassComment", "NONE", "NONE", "NONE" ],
+        #[ "sassDefault", "NONE", "NONE", "NONE" ],
+        #[ "sassVariable", "NONE", "NONE", "NONE" ],
+        #[ "sassFunction", "NONE", "NONE", "NONE" ],
+        #[ "sassMixing", "NONE", "NONE", "NONE" ],
+        #[ "sassMixin", "NONE", "NONE", "NONE" ],
+        #[ "sassPlaceholder", "NONE", "NONE", "NONE" ],
+        #[ "sassExtend", "NONE", "NONE", "NONE" ],
+        #[ "sassFunctionDecl", "NONE", "NONE", "NONE" ],
+        #[ "sassReturn", "NONE", "NONE", "NONE" ],
+        #[ "sassTodo", "NONE", "NONE", "NONE" ],
+        #[ "sassCharset", "NONE", "NONE", "NONE" ],
+        #[ "sassMedia", "NONE", "NONE", "NONE" ],
+        #[ "sassMediaOperators", "NONE", "NONE", "NONE" ],
+        #[ "sassInclude", "NONE", "NONE", "NONE" ],
+        #[ "sassDebug", "NONE", "NONE", "NONE" ],
+        #[ "sassWarn", "NONE", "NONE", "NONE" ],
+        #[ "sassControl", "NONE", "NONE", "NONE" ],
+        #[ "sassFor", "NONE", "NONE", "NONE" ],
+        #[ "sassEscape", "NONE", "NONE", "NONE" ],
+        #[ "sassIdChar", "NONE", "NONE", "NONE" ],
+        #[ "sassClassChar", "NONE", "NONE", "NONE" ],
+        #[ "sassInterpolationDelimiter", "NONE", "NONE", "NONE" ],
+        #[ "sassAmpersand", "NONE", "NONE", "NONE" ],
+        #[ "sassId", "NONE", "NONE", "NONE" ],
+        #[ "sassClass", "NONE", "NONE", "NONE" ]
+    ]
+
+    # Step 4: generation
+    #
+    # From a separate shell:
+    #
+    #     $ erb -T - bar.erb > bar.vim
+    #
+    # From Vim:
+    #
+    #     :!erb -T - % > %:r.vim
+
+    # These online resources can help you design your colorscheme:
+    #
+    #   * http://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
+    #         the xterm palette
+    #   * http://whatcolor.herokuapp.com/
+    #         play with hexadecimal colors right in the address bar (currently down)
+    #   * http://color.hailpixel.com/
+    #         similar concept, fuzzier implementation
+    #   * http://colourco.de/
+    #         similar concept, fancier implementation
+    #   * http://www.colr.org/
+    #         extract a palette from an image
+    #   * http://colores.manugarri.com/
+    #         search for 'word', get images and color palettes
+    #   * http://www.colourlovers.com/palettes
+    #         user-created palettes
+    #   * http://www.perbang.dk/color+scheme/
+    #         a no-nonsense colorscheme generator
+    #   * https://color.adobe.com/
+    #         Adobe's fancy colorscheme generator
+    #   * http://paletton.com/
+    #         The classic 'Color Scheme Designer', rebranded
+    #   * http://vrl.cs.brown.edu/color
+    #         A very smart palette generator
+
+    # A few general advices:
+    #
+    #   * The Windows console is limited to the 16 so-called "ANSI" colors but it has
+    #     a few of them interverted which makes numbers impractical. Use color names
+    #     instead of numbers: :help cterm-colors
+    #   * The Windows console (yeah…) doesn't do italics, underlines or bolded text;
+    #     it is limited to normal and reverse. Keep that in mind if you want
+    #     your colorscheme to be usable in as many environments as possible by as many
+    #     people as possible.
+    #   * All of the terminal emulators in use these days allow their users to
+    #     change the 16 so-called "ANSI" colors. It is also possible on some platforms
+    #     to change some or all of the 256 colors in the xterm palette. Don't take
+    #     anything for granted.
+    #   * When used against a light background, strong colors work better than muted
+    #     ones. Light or dark doesn't really matters. Also, it is harder to discriminate
+    #     between two similar colors on a light background.
+    #   * Both strong and muted colors work well against a dark background. It is also
+    #     easier to work with similar colors, but dark colors don't work at all.
+    #   * Use as many text samples as possible. String-heavy languages may look completely
+    #     different than keyword-heavy ones. This can have an impact on the usability
+    #     of your colorscheme.
+    #   * Most terminal emulators and terminal multiplexers currently in use on unix-like
+    #     systems support 256 colors but they almost always default to a '$TERM' that tells
+    #     Vim otherwise. Your users will need to make sure their terminal emulator/multiplexer
+    #     is correctly set up if they want to enjoy the best possible experience.
+
+    # Many thanks to Barry Arthur (https://github.com/dahu) for the original idea.
+
+    # You don't need to edit anything beyond this line.
+-%>
+" <%= information[:name] %>.vim -- Vim color scheme.
+" Author:      <%= information[:author] %> (<%= information[:email] %>)
+" Webpage:     <%= information[:webpage] %>
+" Description: <%= information[:description] %>
+
+hi clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+let colors_name = "<%= information[:name] %>"
+
+if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
+<% for highlight in highlights -%>
+<% if highlight.length == 2 -%>
+    hi link <%= highlight[0] %> <%= highlight[1] %>
+<% elsif highlight.length == 4 -%>
+    hi <%= highlight[0] %> ctermbg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][1] %> ctermfg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][1] %> cterm=<%= highlight[3] %> guibg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][0] %> guifg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][0] %> gui=<%= highlight[3] %>
+<% if highlight[0] == "Normal" -%>
+    set background=<%= information[:background] %>
+<% end -%>
+<% else -%>
+    hi <%= highlight[0] %> ctermbg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][1] %> ctermfg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][1] %> cterm=<%= highlight[3] %> guibg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][0] %> guifg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][0] %> gui=<%= highlight[3] %> guisp=<%= highlight[4].kind_of?(String) ? highlight[4] : highlight[4][0] %>
+<% end -%>
+<% end -%>
+elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
+    set t_Co=16
+<% for highlight in highlights -%>
+<% if highlight.length == 2 -%>
+    hi link <%= highlight[0] %> <%= highlight[1] %>
+<% else -%>
+    hi <%= highlight[0] %> ctermbg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][2] %> ctermfg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][2] %> cterm=<%= highlight[3] %>
+<% if highlight[0] == "Normal" -%>
+    set background=<%= information[:background] %>
+<% end -%>
+<% end -%>
+<% end -%>
+endif
+
+" Generated with RNB (https://gist.github.com/romainl/5cd2f4ec222805f49eca)
+

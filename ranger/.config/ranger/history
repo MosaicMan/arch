@@ -8,18 +8,15 @@ flat 2
 flat 3
 bulkrename 
 move 
-open_with 
 linemode 
 linemode?
 linemode
 linemode devicons
 mkdir Fidelity
 mkdir {Personal, Qlio, Shared}
-delete
 mkdir Personal
 mkdir Qlio
 mkdir Shared
-copy 
 ?
 help
 copy
@@ -39,3 +36,15 @@ ls
 terminal ls
 ll
 terminal
+rename roller-coaster.jph
+rename roller-coaster.jpg
+delete
+paste 
+open_with gimp
+open_with 
+copy 
+rename qlio-wal
+rename qlio-wal.vim
+rename qliowal.vim
+c
+rename jzmq.jar

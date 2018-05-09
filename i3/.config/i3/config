@@ -92,7 +92,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+i split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+o split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -330,6 +330,7 @@ exec_always --no-startup-id feh --bg-scale ~/.wallpapers/Elarun-Ice-Left.png ~/.
 exec_always --no-startup-id ~/.screenlayout/development.sh
 
 exec_always --no-startup-id compton -f --config ~/.config/compton.conf
+exec_always --no-startup-id wal -R -n -q
 
 # Assign applications to specific workspaces. Get class from xprop output (2nd string of WM_CLASS(STRING) line)
 assign [class="Code"] $workspace1

@@ -9,6 +9,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -19,8 +20,8 @@ Plug 'ryanoasis/vim-devicons'
 "Plug 'python-mode/python-mode'
 Plug 'w0rp/ale'
 Plug 'luochen1990/rainbow'
-Plug 'davidhalter/jedi-vim'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'matze/vim-move'
 "Plug 'vim-python/python-syntax'
 "Plug 'kh3phr3n/python-syntax'
@@ -36,6 +37,13 @@ Plug 'plytophogy/vim-virtualenv'
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'tpope/vim-fugitive'
 Plug 'ivanov/vim-ipython'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-syntax/'
+Plug 'Shougo/neco-vim/'
+Plug 'zchee/deoplete-jedi'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'bfredl/nvim-ipy'
+Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 
 set nocompatible	" Vi Improved
@@ -51,6 +59,7 @@ set relativenumber	" Relative line numbers
 set nowrap
 set laststatus=2
 set encoding=utf-8
+set fillchars=vert:\ ,fold:-
 
 " Tab settings per syntax
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
@@ -83,7 +92,7 @@ nmap <C-Up> ddkP
 nmap <C-Down> ddp
 nmap <space> :
 
-"Tabs
+"Tabs(Buffers)
 nnoremap th :bfirst<CR>
 nnoremap tl :blast<CR>
 nnoremap tj :bprevious<CR>
@@ -95,6 +104,29 @@ colorscheme qliowal
 
 " Rainbow Parentheses
 let g:rainbow_active = 1
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+" nvim-ipy
+let g:ipy_celldef = ['^##', '^##']
+"Or you can also use let g:ipy_celldef = '^##'
+map <silent> <F6> <Plug>(IPy-RunCell)
 
 " ALE
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
