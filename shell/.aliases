@@ -1,0 +1,10 @@
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias cls='clear'
+alias svim='sudoedit'
+alias vim='nvim'
+alias pes='pipenv shell'
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
+
