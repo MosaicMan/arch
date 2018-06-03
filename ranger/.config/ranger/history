@@ -1,35 +1,5 @@
-flat!
-flat
-rename 5-Day Photo Challenge - Composition
-flat -1
-rename 
-flat 1
-flat 2
-flat 3
-bulkrename 
-move 
-linemode 
-linemode?
-linemode
-linemode devicons
-mkdir Fidelity
-mkdir {Personal, Qlio, Shared}
-mkdir Personal
-mkdir Qlio
-mkdir Shared
-?
-help
-copy
-mkdir .icons
-mkdir default
-touch index.theme
-open_with vim
-cut
-mkdir icons
-paste
 sudo vim sddm.conf
 mkdir History
-
 terminal 
 term
 ls
@@ -38,8 +8,6 @@ ll
 terminal
 rename roller-coaster.jph
 rename roller-coaster.jpg
-delete
-paste 
 open_with gimp
 open_with 
 copy 
@@ -48,3 +16,35 @@ rename qlio-wal.vim
 rename qliowal.vim
 c
 rename jzmq.jar
+rename LoanFidelity.pdf
+rename LoanChicago.pdf
+rename LoanCommonwealth.pdf
+rename OwnerFidelity.pdf
+rename OwnerCommonwealth.pdf
+rename OwnerChicago.pdf
+paste 
+open_with
+rename test1.png
+open_with k
+cut 
+search h5
+select_file *.h5
+search GBPUSD
+copy
+mkdir datastore
+mkdir quotes
+mkdir studies
+mkdir archive
+mkdir management
+mkdir commands
+touch __init__.py
+touch dukascopy_import.py
+mkdir frontend
+edit 
+rename research
+edit
+shell 
+delete
+
+rename OldSync
+rename Sync

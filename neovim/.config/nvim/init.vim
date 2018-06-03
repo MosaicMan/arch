@@ -7,7 +7,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
@@ -116,7 +116,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 augroup omnifuncs
   autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType sass,scss,css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -132,6 +132,10 @@ map <silent> <F6> <Plug>(IPy-RunCell)
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 "let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_fixers = {
+  \ 'javascript': ['eslint'] ,
+  \}
+nmap <leader>d <Plug>(ale_fix)
 
 " NERDTree
 "let NERDTreeMinimalUI = 1

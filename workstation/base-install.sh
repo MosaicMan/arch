@@ -58,6 +58,7 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     cmake \
     compton \
     cronie \
+    ctags \
     darktable \
     davfs2 \
     feh \
@@ -69,14 +70,18 @@ pacman -S pulseaudio pulseaudio-alsa alsa-utils \
     htop \
     kcalc \
     kcharselect \
+    kcolorchooser \
     keepass \
     krita \
     ktorrent \
+    lsof \
+    neovim \
     ntfs-3g \
     nvidia \
     obs-studio \
     openssh \
     otf-font-awesome \
+    p7zip \
     pepper-flash \
     ranger \
     rofi \

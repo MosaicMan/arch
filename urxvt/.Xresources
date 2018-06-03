@@ -1,7 +1,7 @@
 ! █▓▒░ color scheme
 !#include </home/juancq/sourcerer.Xcolors>
 !#include </home/juancq/blackmagic.Xcolors>
-#include </home/juancq/miasma.Xcolors>
+!#include </home/juancq/miasma.Xcolors>
 
 ! █▓▒░ fonts
 !urxvt*font: xft:gohufont:size=12:antialias=true, \
