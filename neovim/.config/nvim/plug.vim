@@ -22,7 +22,7 @@ source ~/.config/nvim/plugins/zenmode.vim
 source ~/.config/nvim/plugins/closeothers.vim
 source ~/.config/nvim/plugins/javascript.vim
 source ~/.config/nvim/plugins/versioncontrol.vim
-source ~/.config/nvim/plugins/sessions.vim
+source ~/.config/nvim/plugins/workspace.vim
 source ~/.config/nvim/plugins/linting.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/comments.vim
