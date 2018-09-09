@@ -65,3 +65,9 @@ eval "$(fasd --init auto)"
 source ~/.shellrc
 source ~/.aliases
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='
+    --color fg:237,bg:-1,hl:2,fg+:4,bg+:-1,hl+:2
+    --color info:237,prompt:4,spinner:1,pointer:2,marker:2
+'

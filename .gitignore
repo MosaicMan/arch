@@ -2,3 +2,5 @@
 .pyc
 .swo
 plugged/
+__pycache__/
+.directory

@@ -32,7 +32,7 @@ set $glass #00000040
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-font pango:DejaVuSansMono Nerd Font, FontAwesome5FreeSolid 10
+font pango:DejaVuSansMono Nerd Font, FontAwesome5FreeSolid 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -192,9 +192,10 @@ set $mute --no-startup-id amixer -q -D pulse sset Master toggle
 
 # Gimp
 # for_window [window_role="gimp-image-window"] move left; resize set 640 480
-for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt 
-for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-assign [class="Gimp"] $workspace2
+# for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt 
+# for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+# assign [class="Gimp"] $workspace2
+for_window [class="Gimp"] floating enable
 
 # Calculator
 for_window [instance="qalculate"] floating enable
@@ -208,6 +209,10 @@ bindsym XF86AudioMute		exec $mute
 bindsym XF86AudioLowerVolume	exec $dec
 bindsym XF86AudioRaiseVolume	exec $inc
 bindsym XF86Calculator 		exec $calc
+
+# Scanner
+set $scan --no-startup-id scanimage --device 'fujitsu:ScanSnap iX500:101739' --mode=Gray --format=tiff --resolution=300 --swdeskew=yes --swdespeck=3 --swcrop=yes --swskip=1 --overscan=off --batch --progress --source="ADF Duplex" 
+bindsym Mod4+s exec $scan
 
 # Keepass
 bindsym $mod+Shift+minus move scratchpad

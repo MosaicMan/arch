@@ -16,15 +16,29 @@
 !urxvt*font: xft:neep:size=11:antialias=false
 !urxvt*font: xft:perfect dos vga 437:size=11:antialias=false
 !urxvt*font: xft:tewi:size=11:antialias=false
-urxvt*font: xft:Hack Nerd Font Mono:size=11:antialias=true \
+!urxvt*font: xft:Hack Nerd Font Mono:size=12:antialias=true \
+!            xft:Font Awesome 5 Free Solid:size=11:antialias=true
+urxvt*font: xft:MesloLGSDZ Nerd Font Mono:RegularForPowerline:size=12:antialias=true \
+            xft:xft:DejaVuSansMono Nerd Font Mono:Book:size=12:antialias=true \
             xft:Font Awesome 5 Free Solid:size=11:antialias=true
+urxvt*letterSpace: 0
+urxvt*lineSpace: 0
+!urxvt*font: xft:SauceCodePro Nerd Font Mono:Regular:size=12:antialias=true \
+!            xft:Hack Nerd Font Mono:size=14:antialias=true \
+!            xft:Font Awesome 5 Free Solid:size=11:antialias=true
+!urxvt*letterSpace: 0
+!urxvt*lineSpace: 0
+!urxvt*font: xft:DejaVuSansMono Nerd Font:Book:size=12:antialias=true \
+!            xft:Hack Nerd Font Mono:size=14:antialias=true \
+!            xft:Font Awesome 5 Free Solid:size=11:antialias=true
+!urxvt*lineSpace: 0
+!urxvt*letterSpace: 0
+
 
 urxvt*boldFont: 
 urxvt*italicFont: 
 urxvt*bolditalicFont: 
 
-urxvt*letterSpace: 0
-urxvt*lineSpace: 0
 
 ! █▓▒░ interface
 urxvt*scrollBar: false
@@ -36,7 +50,7 @@ urxvt*borderLess: false
 urxvt*cursorBlink: 1
 
 ! █▓▒░ extensions
-urxvt.perl-ext-common: default,clipboard,selection-to-keyboard,keyboard-select,url-select
+urxvt.perl-ext-common: default,clipboard,selection-to-keyboard,keyboard-select,url-select,resize-font
 urxvt.keysum.M-u: perl:url-select:select_next
 urxvt.url-select.underline: true
 urxvt.url-select.autocopy: true

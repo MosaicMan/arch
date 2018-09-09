@@ -2,5 +2,13 @@
 /home/juancq/ai/fx/backend/modules/history/models.py
 /home/juancq/ai/fx/backend/modules/research/migrations
 /home/juancq/ai/fx/frontend/src/styles/partials/_variables.sass
-/home/juancq/ai/fx/frontend/src/scripts/console/containers/console.js
-/home/juancq/ai/fx/frontend/src/scripts/console/reducers/datasets.js
+/home/juancq/ai/fx/frontend/src/scripts/archive/console/containers/console.js
+/home/juancq/ai/fx/frontend/src/scripts/archive/console/reducers/datasets.js
+/home/juancq/titlewize/frontend/src/styles/titlewize/index.js
+/home/juancq/titlewize/frontend/src/scripts
+/home/juancq/.dotfiles/neovim/.config/nvim/ftplugin/javascript_*.vim
+/home/juancq/.dotfiles/neovim/.config/nvim
+/home/juancq/titlewize/backend
+/home/juancq/.dotfiles/neovim/.config/nvim/plugins/markdown.vim
+/home/juancq/.dotfiles/fonts/.local/share/fonts/SourceCodePro/.uuid
+/home/juancq/.dotfiles/neovim/.config/nvim/keys.vim

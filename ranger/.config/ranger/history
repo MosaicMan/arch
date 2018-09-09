@@ -1,50 +1,50 @@
-sudo vim sddm.conf
-mkdir History
-terminal 
-term
-ls
-terminal ls
-ll
-terminal
-rename roller-coaster.jph
-rename roller-coaster.jpg
-open_with gimp
-open_with 
-copy 
-rename qlio-wal
-rename qlio-wal.vim
-rename qliowal.vim
-c
-rename jzmq.jar
-rename LoanFidelity.pdf
-rename LoanChicago.pdf
-rename LoanCommonwealth.pdf
-rename OwnerFidelity.pdf
-rename OwnerCommonwealth.pdf
-rename OwnerChicago.pdf
-paste 
-open_with
-rename test1.png
-open_with k
-cut 
-search h5
-select_file *.h5
-search GBPUSD
-copy
-mkdir datastore
-mkdir quotes
-mkdir studies
-mkdir archive
-mkdir management
-mkdir commands
-touch __init__.py
-touch dukascopy_import.py
-mkdir frontend
-edit 
-rename research
+touch sample.py
+open_with nvim
+rename snippets
+touch snippets.vim
+rename UltiSnips
+touch ale.vim
+search al
+touch .stylelintrc
+rename .stylelintrc.yaml
+rename .stylelintrc.json
+touch test.yaml
+touch test.js
+touch indentline.vim
+touch auto-pairs.vim
 edit
-shell 
-delete
+touch ipython.vim
+search ipy
+touch htmldjango.snippets
+touch easymotion.vim
+touch fzf.vim
+search nb
+search wal
+search conf
+search i3
+touch ergonomics.vim
+rename limelight.vim
+touch indentguides.vim
+touch tagbar.vim
+touch session.vim
+mkdir sessions
+search .vim
+mkdir undo
+search nv
+mkdir after
+mkdir plugin
+touch bclose.vim
+search nvi
 
-rename OldSync
-rename Sync
+rename vim-airline.vim
+search nvim
+touch plugins.vim
+mkdir plugincfg
+touch markdown.vim
+rename plugins
+rename Menlo
+rename Meslo
+search loca
+search local
+delete
+find 

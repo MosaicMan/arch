@@ -16,3 +16,5 @@ eval "$(fasd --init auto)"
 source ~/.shellrch
 source ~/.aliases
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,0 +1,11 @@
+snippet pdhdf "Pandas read HDF store" b
+with pd.HDFStore(${1:filename}) as store:
+    ${2:variable}: pd.read_hdf(store, ${3:dataset})
+${0}
+endsnippet
+
+snippet cell "Vim-IPython code cell" b
+##
+${1}
+##
+endsnippet
