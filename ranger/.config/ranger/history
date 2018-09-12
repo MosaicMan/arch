@@ -43,8 +43,8 @@ mkdir plugincfg
 touch markdown.vim
 rename plugins
 rename Menlo
-rename Meslo
 search loca
 search local
 delete
 find 
+rename Meslo
