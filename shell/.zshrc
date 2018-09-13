@@ -61,7 +61,6 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
-eval "$(fasd --init auto)"
 source ~/.shellrc
 source ~/.aliases
 
