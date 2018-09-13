@@ -66,6 +66,8 @@ urxvt.clipboard.pastecmd: xsel -ob
 urxvt.saveLines: 9999
 URxvt.meta8: true
 
-! █▓▒░ remapping for tmux
+! █▓▒░ remapping for tmux and vim
 URxvt*keysym.M-space: \033\040
+URxvt*keysym.M-comma: \033\,
+
 
