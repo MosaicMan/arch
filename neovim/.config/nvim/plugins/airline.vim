@@ -19,6 +19,7 @@ function! ConfigureAirline()
             \'c' : [ promptline#slices#cwd() ],
             \'y' : [ promptline#slices#python_virtualenv(), promptline#slices#vcs_branch({'hg':1}) ],
             \'warn' : [ promptline#slices#last_exit_code() ]}
+    let g:airline#extensions#tmuxline#enabled = 0
 endfunction
 
 call add(plugin_post_install_configurations, function("ConfigureAirline"))

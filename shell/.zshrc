@@ -61,12 +61,30 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
-source ~/.shellrc
-source ~/.aliases
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='
     --color fg:237,bg:-1,hl:2,fg+:4,bg+:-1,hl+:2
     --color info:237,prompt:4,spinner:1,pointer:2,marker:2
 '
+source ~/.shellrc
+source ~/.aliases
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search"
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-up
+bindkey '^ ' autosuggest-execute
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
