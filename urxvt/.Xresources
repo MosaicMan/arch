@@ -47,7 +47,7 @@ urxvt*shading: 20
 urxvt*internalBorder: 10
 urxvt*borderColor: #1c1c1c
 urxvt*borderLess: false
-urxvt*cursorBlink: 1
+urxvt*cursorBlink: true
 
 ! █▓▒░ extensions
 urxvt.perl-ext-common: default,clipboard,selection-to-keyboard,keyboard-select,url-select,resize-font
