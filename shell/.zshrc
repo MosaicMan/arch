@@ -78,7 +78,8 @@ bindkey '^[[B' history-substring-search-up
 bindkey '^ ' autosuggest-execute
 
 # Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
+# if ! zplug check --verbose; then
+if ! zplug check; then
     printf "Install? [y/N]: "
     if read -q; then
         echo; zplug install
@@ -86,5 +87,6 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+# zplug load --verbose
+zplug load
 
