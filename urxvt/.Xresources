@@ -4,70 +4,86 @@
 !#include </home/juancq/miasma.Xcolors>
 
 ! █▓▒░ fonts
-!urxvt*font: xft:gohufont:size=12:antialias=true, \
+!URxvt*font: xft:gohufont:size=12:antialias=true, \
 !            xft:Symbola:pixelsize=14:antialias=true:hinting=slight
-!urxvt*font: xft:gohufont:size=11:antialias=false
-!urxvt*font: -*-creep-regular-*-*--16-*-*-*-*-*-*-1
-!urxvt*font: -*-lime-*-*-*--11-*-*-*-*-*-*-1
-!urxvt*font: xft:creep:size=16:antialias=true
-!urxvt*font: xft:envy code r:size=9:antialias=false
-!urxvt*font: xft:lemon:size=16:antialias=false
-!urxvt*font: xft:lime:size=16:antialias=false
-!urxvt*font: xft:neep:size=11:antialias=false
-!urxvt*font: xft:perfect dos vga 437:size=11:antialias=false
-!urxvt*font: xft:tewi:size=11:antialias=false
-!urxvt*font: xft:Hack Nerd Font Mono:size=12:antialias=true \
+!URxvt*font: xft:gohufont:size=11:antialias=false
+!URxvt*font: -*-creep-regular-*-*--16-*-*-*-*-*-*-1
+!URxvt*font: -*-lime-*-*-*--11-*-*-*-*-*-*-1
+!URxvt*font: xft:creep:size=16:antialias=true
+!URxvt*font: xft:envy code r:size=9:antialias=false
+!URxvt*font: xft:lemon:size=16:antialias=false
+!URxvt*font: xft:lime:size=16:antialias=false
+!URxvt*font: xft:neep:size=11:antialias=false
+!URxvt*font: xft:perfect dos vga 437:size=11:antialias=false
+!URxvt*font: xft:tewi:size=11:antialias=false
+!URxvt*font: xft:Hack Nerd Font Mono:size=12:antialias=true \
 !            xft:Font Awesome 5 Free Solid:size=11:antialias=true
-urxvt*font: xft:MesloLGSDZ Nerd Font Mono:RegularForPowerline:size=12:antialias=true \
+URxvt*pointerShape: arrow
+URxvt*font: xft:MesloLGSDZ Nerd Font Mono:RegularForPowerline:size=12:antialias=true \
             xft:xft:DejaVuSansMono Nerd Font Mono:Book:size=12:antialias=true \
             xft:Font Awesome 5 Free Solid:size=11:antialias=true
-urxvt*letterSpace: 0
-urxvt*lineSpace: 0
-!urxvt*font: xft:SauceCodePro Nerd Font Mono:Regular:size=12:antialias=true \
+URxvt*letterSpace: 0
+URxvt*lineSpace: 0
+!URxvt*font: xft:SauceCodePro Nerd Font Mono:Regular:size=12:antialias=true \
 !            xft:Hack Nerd Font Mono:size=14:antialias=true \
 !            xft:Font Awesome 5 Free Solid:size=11:antialias=true
-!urxvt*letterSpace: 0
-!urxvt*lineSpace: 0
-!urxvt*font: xft:DejaVuSansMono Nerd Font:Book:size=12:antialias=true \
+!URxvt*letterSpace: 0
+!URxvt*lineSpace: 0
+!URxvt*font: xft:DejaVuSansMono Nerd Font:Book:size=12:antialias=true \
 !            xft:Hack Nerd Font Mono:size=14:antialias=true \
 !            xft:Font Awesome 5 Free Solid:size=11:antialias=true
-!urxvt*lineSpace: 0
-!urxvt*letterSpace: 0
+!URxvt*lineSpace: 0
+!URxvt*letterSpace: 0
 
 
-urxvt*boldFont: 
-urxvt*italicFont: 
-urxvt*bolditalicFont: 
+URxvt*boldFont: 
+URxvt*italicFont: 
+URxvt*bolditalicFont: 
 
 
 ! █▓▒░ interface
-urxvt*scrollBar: false
-urxvt*transparent: true
-urxvt*shading: 20
-urxvt*internalBorder: 10
-urxvt*borderColor: #1c1c1c
-urxvt*borderLess: false
-urxvt*cursorBlink: true
+URxvt*scrollBar: false
+URxvt*transparent: true
+URxvt*shading: 20
+URxvt*internalBorder: 10
+URxvt*borderColor: #1c1c1c
+URxvt*borderLess: false
+URxvt*cursorBlink: true
 
 ! █▓▒░ extensions
-urxvt.perl-ext-common: default,clipboard,selection-to-keyboard,keyboard-select,url-select,resize-font
-urxvt.keysum.M-u: perl:url-select:select_next
-urxvt.url-select.underline: true
-urxvt.url-select.autocopy: true
-urxvt.url-select.launcher: /usr/bin/xdg-open
-urxvt.keysym.M-Escape: perl:keyboard-select:activate
-!urxvt.keysym.M-c:   perl:clipboard:copy
-!urxvt.keysym.C-v:   perl:clipboard:paste
-!urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-urxvt.clipboard.copycmd:  xsel -ib
-urxvt.clipboard.pastecmd: xsel -ob
+URxvt.perl-ext-common: default,url-select,resize-font,keyboard-select
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.underline: true
+URxvt.url-select.autocopy: true
+URxvt.url-select.launcher: /usr/bin/xdg-open
+
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: true
+
+!URxvt.perl-ext-common: default,clipboard,selection-to-keyboard,keyboard-select,url-select,resize-font
+!URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.url-select.underline: true
+!URxvt.url-select.autocopy: true
+!URxvt.url-select.launcher: /usr/bin/xdg-open
+!URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!URxvt.keyboard-select.clipboard: true
+!URxvt.keysym.M-c:   perl:clipboard:copy
+!URxvt.keysym.C-v:   perl:clipboard:paste
+!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+!URxvt.clipboard.copycmd:  xsel -ib
+!URxvt.clipboard.pastecmd: xsel -ob
+
+! █▓▒░ for ctrl+shift bindings to work
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! █▓▒░ misc
-urxvt.saveLines: 9999
+URxvt.saveLines: 9999
 URxvt.meta8: true
 
 ! █▓▒░ remapping for tmux and vim
 URxvt*keysym.M-space: \033\040
 URxvt*keysym.M-comma: \033\,
-
 
