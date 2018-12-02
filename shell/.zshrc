@@ -74,7 +74,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 
 bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey '^ ' autosuggest-execute
 
 # Install plugins if there are plugins that have not been installed

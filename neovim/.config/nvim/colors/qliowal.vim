@@ -171,6 +171,8 @@ hi pythonFunction ctermbg=NONE ctermfg=4
 hi pythonRepeat ctermbg=NONE ctermfg=5
 hi pythonStatement ctermbg=NONE ctermfg=1 cterm=Bold
 hi pythonBuiltIn ctermbg=NONE ctermfg=4
+hi pythonDecorator ctermbg=NONE ctermfg=59
+hi pythonDecoratorName ctermbg=NONE ctermfg=59
 hi phpMemberSelector ctermbg=NONE ctermfg=7
 hi phpComparison ctermbg=NONE ctermfg=7
 hi phpParent ctermbg=NONE ctermfg=7

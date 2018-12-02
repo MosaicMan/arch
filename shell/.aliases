@@ -5,5 +5,5 @@ alias svim='sudoedit'
 alias vim='nvim'
 alias pes='pipenv shell'
 export WORKON_HOME=~/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 
